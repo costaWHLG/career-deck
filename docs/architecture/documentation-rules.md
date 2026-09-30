@@ -33,6 +33,7 @@
 | 产品 PRD / ADR / Check 表 | AGENTS.md §4 的飞书 wiki |
 | Knowledge 架构 | [knowledge-system.md](knowledge-system.md) |
 | 架构决策 | `decisions/00NN-*.md` |
+| 评分/策略研究参照 | [`docs/research/`](../research/) |
 | 补充工程约束 | [rules.md](rules.md) |
 | 飞书编辑经验 | [lark-document-operations.md](lark-document-operations.md) |
 

@@ -5,15 +5,16 @@
 
 ## 1. 项目定位
 
-以 OfferPilot 为底座的**个人工作机会管理器**，补齐"投递之前"的缺口，串成完整闭环：
+以 OfferPilot 为底座的**本地化通用工作机会管理器**，补齐"投递之前"的缺口，串成完整闭环：
 
 ```
 发现岗位（多源） → AI 评分推荐 → 决定投递（晋升） → 投递→终态全链路追踪 → 每步建议
      ↑ 新增                                    OfferPilot 既有能力
 ```
 
-原始输入是个人简历、地域要求、方向（`discovery_profiles` 画像）；
-输出是带评分排序的候选池与一键转投递。
+产品口径（2026-09-30 确认）：**对外是通用应用，不内置任何个人数据**。
+个人简历、地域要求、方向、薪资期望、红线由用户在使用时自行导入/填写
+（`discovery_profiles` 画像 + 简历库），评分与推荐围绕该画像展开。
 
 ## 2. 组件全景
 
@@ -68,7 +69,11 @@ promote.py（唯一晋升路径）→ ApplicationCreationService 单一 intake
 - [ ] **P3**：`crawler` 平台 adapter（mcp-jobs 桥；前置：mcp-jobs cookie 预热突破 IP 级验证墙）；
   批量抓取 → 去重入池
 - [ ] **P4**：前端"发现"页（候选池看板、评分卡、一键转投递）；web/src features + services 同步
-- [ ] **收尾**：评分链路真实 provider 验收（AGENTS.md §7 `--real-ai`）；上游 PR（发现层回馈 offercontext）
+- [ ] **导入引导**（通用化关键项）：首次使用引导——导入简历 → 填写城市/方向/薪资期望/红线 →
+  写入 `discovery_profiles`；挂载到既有 `onboarding` 步骤清单（与 configure_ai、
+  create_primary_resume 并列）
+- [ ] **收尾**：评分链路真实 provider 验收（AGENTS.md §7 `--real-ai`）；
+  发现层提 PR 回馈上游 offercontext/offerPilot（待 P2-P4 成熟后）
 
 ## 6. 开发与验证
 
@@ -84,5 +89,8 @@ bash scripts/release-gate.sh  # 发布前完整门禁
 
 ## 7. 隐私边界
 
-个人简历、薪资期望、红线、候选与投递过程数据是**个人隐私数据**，只存本地数据库
-（SQLite 于用户数据目录），不进入代码仓库。仓库只含代码、契约、方法论与测试夹具。
+- **仓库公开内容**：代码、契约、方法论、市场研究（如 [research/job-market-ai-2026-09.md](../research/job-market-ai-2026-09.md)）、
+  测试夹具（虚构数据）。
+- **永不入库**：个人简历、期望薪资、红线、候选与投递过程数据、任何真实公司沟通记录。
+  这些只存在用户本地 SQLite（用户数据目录）与用户自行维护的本地文件中。
+- 产品以"通用应用"交付：一切个性化数据由用户使用时导入，引导流程见 §5"导入引导"。
