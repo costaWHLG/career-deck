@@ -1,8 +1,17 @@
-# OfferPilot — 开源、本地优先的 AI 求职与投递管理工具
+# CareerDeck — 求职驾驶舱（基于 OfferPilot）
 
 [简体中文](README.md) | [English](README.en.md)
 
-**集中管理投递进度、简历、面试与 Offer，让每一轮准备都有记录可查。**
+**从岗位发现到 Offer 决策：本地化的个人工作机会管理器。**
+
+CareerDeck 在 [OfferPilot](https://github.com/offercontext/offerPilot)（offercontext 维护的开源 AI 求职工作台）
+基础上构建，保留其投递管理、简历、面试与 Offer 对比能力，并新增**岗位发现层**：
+多源岗位摄取、AI 七维评分推荐、一键转投递，覆盖"发现 → 评分 → 投递 → 终态"完整闭环。
+个人简历、薪资期望与偏好由使用者自行导入，不随仓库分发。
+
+---
+
+以下为上游 OfferPilot 的产品说明（底座能力）：
 
 OfferPilot 由 offercontext 维护，是面向个人求职者的开源 AI 求职工作台。
 你可以在本地管理不同公司和岗位的投递记录，整理简历与岗位描述，

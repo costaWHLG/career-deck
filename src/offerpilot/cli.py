@@ -40,7 +40,7 @@ from offerpilot.smoke import (
 )
 from offerpilot.skills import SkillRegistryError, register_skill, skills_payload, update_skill
 
-app = typer.Typer(help="OfferPilot - your local job search workbench")
+app = typer.Typer(help="CareerDeck - your local job search cockpit")
 resume_app = typer.Typer(help="Manage resumes")
 note_app = typer.Typer(help="Manage interview notes")
 offer_app = typer.Typer(help="Manage offers")
@@ -212,7 +212,7 @@ def start(
     resolved_port = port if port is not None else cfg.local_port
     session_factory_for_data_dir(data_dir)
     append_log_entry(data_dir, "INFO", f"server starting on port {resolved_port}")
-    typer.echo(f"OfferPilot running at http://localhost:{resolved_port}")
+    typer.echo(f"CareerDeck running at http://localhost:{resolved_port}")
     uvicorn.run(create_app(data_dir=data_dir), host=host, port=resolved_port)
 
 
@@ -916,7 +916,7 @@ def _validate_cli_jd_input(jd_text: str, jd_url: str) -> None:
 
 def _print_config(data_dir: Path, cfg: Config) -> None:
     active = cfg.active_provider()
-    typer.echo("\nOfferPilot Configuration")
+    typer.echo("\nCareerDeck Configuration")
     typer.echo("---------------------------")
     typer.echo(f"Config file: {data_dir / 'config.json'}")
     typer.echo(f"  provider : {active.provider}")

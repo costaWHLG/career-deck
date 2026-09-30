@@ -1428,7 +1428,7 @@ def create_app(
         extraction_worker,
         brief_worker,
     )
-    app = FastAPI(title="OfferPilot")
+    app = FastAPI(title="CareerDeck")
     knowledge_runtime = KnowledgeWorkerRuntime(
         knowledge_runner,
         knowledge_repository,
@@ -10299,7 +10299,7 @@ def _chat_response_system_message() -> Message:
         role="system",
         surface_contributor="static_policy",
         content=(
-            "你是 OfferPilot，一个求职领航助手。始终使用用户的语言回复。"
+            "你是 CareerDeck，一个求职驾驶舱助手。始终使用用户的语言回复。"
             "当前对话界面支持助手文本增量流式输出。"
             "对于实质性回答，请保持简洁，并优先按「结论、依据、下一步」组织。"
             "对于需要结论和后续行动的实质任务，请先给出证据与注意事项，再以 `## 结论` 收束为一条简短结论，"
@@ -11281,9 +11281,9 @@ def _is_relative_to(path: Path, root: Path) -> bool:
 def _dev_placeholder_html() -> str:
     return """<!doctype html>
 <html lang="zh-CN">
-  <head><meta charset="utf-8"><title>OfferPilot</title></head>
+  <head><meta charset="utf-8"><title>CareerDeck</title></head>
   <body>
-    <h1>OfferPilot API is running</h1>
+    <h1>CareerDeck API is running</h1>
     <p>Build the frontend with <code>cd web && npm run build</code>, or run Vite dev server with API proxy.</p>
   </body>
 </html>"""
@@ -12958,7 +12958,7 @@ def _resume_sample(sample_id: str) -> dict[str, Any] | None:
             "raw_text": "Backend Engineer sample resume with Python, FastAPI, and SQL systems.",
             "content_json": {
                 "career_intent": {"target_roles": ["Backend Engineer"]},
-                "contact": {"name": "OfferPilot Sample"},
+                "contact": {"name": "CareerDeck"},
                 "education": [{"school": "Sample University", "degree": "B.S. Computer Science"}],
                 "experience": [
                     {
@@ -12976,7 +12976,7 @@ def _resume_sample(sample_id: str) -> dict[str, Any] | None:
             "raw_text": "Frontend Engineer sample resume with React and TypeScript.",
             "content_json": {
                 "career_intent": {"target_roles": ["Frontend Engineer"]},
-                "contact": {"name": "OfferPilot Sample"},
+                "contact": {"name": "CareerDeck"},
                 "education": [{"school": "Sample University"}],
                 "experience": [{"company": "Sample Studio", "title": "Frontend Intern"}],
                 "projects": [{"name": "Campus Hub"}],
@@ -12988,7 +12988,7 @@ def _resume_sample(sample_id: str) -> dict[str, Any] | None:
             "raw_text": "Product Manager sample resume with user research and roadmap planning.",
             "content_json": {
                 "career_intent": {"target_roles": ["Product Manager"]},
-                "contact": {"name": "OfferPilot Sample"},
+                "contact": {"name": "CareerDeck"},
                 "education": [{"school": "Sample University"}],
                 "experience": [{"company": "Sample Lab", "title": "Product Intern"}],
                 "projects": [{"name": "Job Search Workflow"}],

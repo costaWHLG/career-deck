@@ -5,7 +5,8 @@
 
 ## 1. 项目定位
 
-以 OfferPilot 为底座的**本地化通用工作机会管理器**，补齐"投递之前"的缺口，串成完整闭环：
+以 OfferPilot 为底座的**本地化通用工作机会管理器**（产品名 **CareerDeck · 求职驾驶舱**），
+补齐"投递之前"的缺口，串成完整闭环：
 
 ```
 发现岗位（多源） → AI 评分推荐 → 决定投递（晋升） → 投递→终态全链路追踪 → 每步建议
@@ -20,7 +21,7 @@
 
 | 组件 | 位置 | 职责 | 状态 |
 |---|---|---|---|
-| offerPilot fork（本仓库） | github.com/costaWHLG/offerPilot | 管理底座：投递看板、JD 版本、面试、Offer、谈薪、Pilot AI；发现层在 `src/offerpilot/discovery/` | 发现层 P1 已交付 |
+| offerPilot fork（本仓库） | github.com/costaWHLG/career-deck | 管理底座：投递看板、JD 版本、面试、Offer、谈薪、Pilot AI；发现层在 `src/offerpilot/discovery/` | 发现层 P1 已交付 |
 | mcp-jobs fork | github.com/costaWHLG/mcp-jobs | 招聘平台职位查询 MCP（猎聘/Boss直聘/智联/51job），P3 crawler adapter 的数据源桥 | 城市码已修；反爬 cookie 预热待做 |
 | 求职方法论 | 七维评分口径已并入 ADR 0013 §2.2 | 评分权重/评级/红线规则的产品事实源 | 已固化 |
 
