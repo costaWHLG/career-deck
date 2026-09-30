@@ -70,6 +70,7 @@ from offerpilot.reliability.trace import (
 )
 from offerpilot.ai.client import ConfiguredAIClient
 from offerpilot.confirmed_memory.api import register_memory_routes
+from offerpilot.discovery.api import register_discovery_routes
 from offerpilot.context_sources.api import register_context_policy_routes
 from offerpilot.context_sources.readiness_api import register_readiness_context_routes
 from offerpilot.context_sources.summary_api import register_summary_routes
@@ -1449,6 +1450,7 @@ def create_app(
     # P4 context management routes are registered at the composition root so
     # they share this app's authenticated workspace Session factory.
     register_memory_routes(app, session_factory)
+    register_discovery_routes(app, session_factory, resolved_data_dir)
     register_context_policy_routes(app, session_factory)
     register_readiness_context_routes(app, session_factory)
     register_summary_routes(app, session_factory)

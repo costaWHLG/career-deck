@@ -16,6 +16,7 @@ from offerpilot.models import Base
 # on whichever API module happens to be imported first.
 from offerpilot.confirmed_memory import models as _confirmed_memory_models  # noqa: F401
 from offerpilot.context_sources import models as _context_sources_models  # noqa: F401
+from offerpilot.discovery import models as _discovery_models  # noqa: F401
 from offerpilot.proactive import models as _proactive_models  # noqa: F401
 from offerpilot.knowledge import note_lifecycle as _knowledge_note_lifecycle  # noqa: F401
 
